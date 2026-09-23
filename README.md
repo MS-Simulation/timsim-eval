@@ -1,6 +1,6 @@
 # timsim-eval
 
-A **benchmark harness built on a known answer key.** [timsim](https://github.com/theGreatHerrLebert/timsim)
+A **benchmark harness built on a known answer key.** [timsim](https://github.com/MS-Simulation/timsim)
 renders a synthetic proteomics run whose every precursor is known ground truth; `timsim-eval` takes a
 search engine's output over that run (DiaNN / Sage / FragPipe), scores it against the truth, and reports
 hierarchical recall, false-discovery proportion, recall-by-abundance, RT / ion-mobility / intensity
@@ -21,7 +21,7 @@ The first is simulator development; the second and third are why the harness shi
 benchmark and a regression test for **any** DIA tool, not only for the simulator that made it.
 
 Lifted out of the `imspy-simulation` monorepo package so consumers ingest only what they need — e.g. the
-[`timsim-necro`](https://github.com/theGreatHerrLebert/timsim-necro) DAG's score nodes and its
+[`timsim-necro`](https://github.com/MS-Simulation/timsim-necro) DAG's score nodes and its
 `golden/` regression gate. The core (DiaNN-based) path is **imspy-free**.
 
 ## What it does
@@ -44,7 +44,7 @@ Lifted out of the `imspy-simulation` monorepo package so consumers ingest only w
 
 ## The scorers the DAG calls
 
-The [`timsim-necro`](https://github.com/theGreatHerrLebert/timsim-necro) DAG invokes **four** scorer
+The [`timsim-necro`](https://github.com/MS-Simulation/timsim-necro) DAG invokes **four** scorer
 entry points, one per evaluation axis. Each is a `python -m` module with its own `--help`:
 
 | module | axis | headline numbers |
@@ -87,7 +87,7 @@ quoted.
 ## Install
 
 ```bash
-pip install "timsim-eval @ git+https://github.com/theGreatHerrLebert/timsim-eval"
+pip install "timsim-eval @ git+https://github.com/MS-Simulation/timsim-eval"
 ```
 
 Pure-Python deps only: pandas, numpy, scipy, matplotlib, pyarrow, toml. **No imspy, no torch, no Rust.**
